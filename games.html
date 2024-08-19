@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="UBN_transparent.png" class="iconn">
+  <title>UBN GAMES</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+    .game-slot {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .game-slot img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .game-slot h2 {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+    .play-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .play-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>UBN GAMES</h1>
+  </div>
+  <div class="games-container">
+    <div class="game-slot">
+        <a href="mathgame.html">
+      <img src="https://th.bing.com/th/id/OIP.KmQYwuJCOke-laIbN3NF5wHaDu?rs=1&pid=ImgDetMain" height="300px" width="550px" alt="BODMAS Game"></a>
+      <h2>BODMAS Game</h2>
+      <button class="play-btn" onclick="playGame('BODMAS Game')">Play Now</button>
+    </div>
+    <div class="game-slot">
+      <img src="https://th.bing.com/th/id/R.6063ebe744eb62aae213aa1c6f8dcc53?rik=h8UO%2bEPaHPrckg&pid=ImgRaw&r=0" height="300px" width="550px" alt="Memory Game">
+      <h2>Memory Game</h2>
+      <button class="play-btn" onclick="playGame('Memory Game')">Play Now</button>
+    </div>
+    <div class="game-slot">
+      <img src="https://th.bing.com/th/id/R.02ba6c2ae85bc0a3520c42df04a03e84?rik=AaUxisd23tuDbg&pid=ImgRaw&r=0" height="300px" width="550px" alt="Word Search">
+      <h2>Word Search</h2>
+      <button class="play-btn" onclick="playGame('Word Search')">Play Now</button>
+    </div>
+    <div class="game-slot">
+      <img src="https://th.bing.com/th/id/R.0b691811a0377ee46942d46017a58337?rik=pECSs6PkPexh0g&riu=http%3a%2f%2fa725.phobos.apple.com%2fus%2fr30%2fPurple%2fv4%2f60%2f9d%2f4c%2f609d4cba-7138-8d28-4b1a-e954165c6933%2fmzl.idzmvbdx.png&ehk=iNXWgIaHmicWkX1BKYhcCJOM8jZ8ghTQLnwkCCW8hfQ%3d&risl=&pid=ImgRaw&r=0" height="300px" width="550px" alt="Puzzle Game">
+      <h2>Puzzle Game</h2>
+      <button class="play-btn" onclick="playGame('Puzzle Game')">Play Now</button>
+    </div>
+  </div>
+
+  <script>
+    function playGame(gameName) {
+      alert('You clicked on ' + gameName);
+      // Here you can redirect to the respective game page
+      // window.location.href = `/${gameName.toLowerCase().replace(/ /g, '-')}.html`;
+    }
+  </script>
+</body>
+</html>

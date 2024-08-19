@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Math Game</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    
+    }
+    .game-container {
+      text-align: center;
+      background: #fff;
+      padding: 155px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .question {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .answer-input {
+      font-size: 15px;
+      padding: 10px;
+      width: 100px;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #7c7575;
+    }
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #0056b3;
+    }
+    .feedback {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    .score {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body background="https://wallpaperaccess.com/full/3021016.jpg">
+  <div class="game-container">
+    <div class="question" id="question">Question will appear here</div>
+    <input type="number" id="answer" class="answer-input" placeholder="Your Answer">
+    <button class="submit-btn" onclick="checkAnswer()">Submit</button>
+    <div class="feedback" id="feedback"></div>
+    <div class="score" id="score">Score: 0</div>
+  </div>
+
+  <script>
+    let num1, num2, correctAnswer, operator;
+    let score = 0;
+
+    function generateQuestion() {
+      num1 = Math.floor(Math.random() * 10) + 1;
+      num2 = Math.floor(Math.random() * 10) + 1;
+      const operations = ['+', '-', '*', '/'];
+      operator = operations[Math.floor(Math.random() * operations.length)];
+
+      switch (operator) {
+        case '+':
+          correctAnswer = num1 + num2;
+          break;
+        case '-':
+          correctAnswer = num1 - num2;
+          break;
+        case '*':
+          correctAnswer = num1 * num2;
+          break;
+        case '/':
+          num1 = num1 * num2; // Ensure division results in whole number
+          correctAnswer = num1 / num2;
+          break;
+      }
+
+      document.getElementById('question').textContent = `What is ${num1} ${operator} ${num2}?`;
+      document.getElementById('answer').value = '';
+      document.getElementById('feedback').textContent = '';
+    }
+
+    function checkAnswer() {
+      const userAnswer = parseFloat(document.getElementById('answer').value);
+      const feedback = document.getElementById('feedback');
+
+      if (userAnswer === correctAnswer) {
+        feedback.textContent = 'Correct! Well done!';
+        feedback.style.color = 'green';
+        score++;
+      } else {
+        feedback.textContent = `Wrong! The correct answer is ${correctAnswer}.`;
+        feedback.style.color = 'red';
+        score--;
+      }
+
+      document.getElementById('score').textContent = `Score: ${score}`;
+      setTimeout(generateQuestion, 2000);
+    }
+
+    window.onload = generateQuestion;
+  </script>
+</body>
+</html>
